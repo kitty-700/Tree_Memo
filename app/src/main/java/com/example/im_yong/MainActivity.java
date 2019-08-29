@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     void display_memo(Piece picked_piece) {
         if (is_have_memo(picked_piece)) {
             android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mainActivity);
-            builder.setTitle(picked_piece.name);
+            builder.setTitle(picked_piece.title);
             builder.setMessage(picked_piece.memo);
             builder.setNegativeButton("OK", null);
             builder.show();
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         //목차 갱신
         String string = "";
         for (int i = 0; i < pieceStack.size(); i++) {
-            string += pieceStack.get(i).name + "\n";
+            string += pieceStack.get(i).title + "\n";
             for (int j = 0; j <= i; j++)
                 string += "   ";
         }
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         if (sub_pieces.size() != 0) {
             //현재 가진 piece들의 정보를 문자열로 만들어 추가한다.
             for (Piece piece : sub_pieces) {
-                String str = piece.name;
+                String str = piece.title;
                 int count = piece.sub_pieces.size();
                 if (count != 0)
                     str += " [" + count + " / " + piece.children_count() + "]";

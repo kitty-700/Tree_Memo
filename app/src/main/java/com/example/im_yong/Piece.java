@@ -3,17 +3,17 @@ package com.example.im_yong;
 import java.util.ArrayList;
 
 public class Piece {
-    String name;
+    String title;
     ArrayList<Piece> sub_pieces = new ArrayList<Piece>();
     String memo;
 
-    Piece(String name, String memo) {
-        this.name = name;
+    Piece(String title, String memo) {
+        this.title = title;
         this.memo = memo;
     }
 
-    Piece(String name) {
-        this.name = name;
+    Piece(String title) {
+        this.title = title;
         this.memo = null;
     }
 
