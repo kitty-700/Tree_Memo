@@ -23,10 +23,10 @@ import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
     MainActivity mainActivity;
     ListView listView;
-    TextView textView;
+    TextView navigator;
     Button memo_btn;
-    Button insert_btn;
-    EditText item_input;
+    Button piece_insert_btn;
+    EditText piece_input;
     Stack<Piece> pieceStack; //최상위 요소 하나는 있어야하므로 최소 크기가 1임.
     Piece root_piece = new Piece("교육학");
     Piece now_piece;
@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.now_where);
+        navigator = (TextView) findViewById(R.id.now_where);
         listView = (ListView) findViewById(R.id.item_list);
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
-        item_input = (EditText) findViewById(R.id.item_input);
-        insert_btn = (Button) findViewById(R.id.insert_item_btn);
+        piece_input = (EditText) findViewById(R.id.item_input);
+        piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
 
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -89,20 +89,20 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        insert_btn.setOnClickListener(new View.OnClickListener() {
+        piece_insert_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //별 의미없는 입력이면 무시한다.
-                String now_entered = item_input.getText().toString().trim();
+                String now_entered = piece_input.getText().toString().trim();
                 if(now_entered.equals("")) {
-                    item_input.setText("");
+                    piece_input.setText("");
                     return;
                 }
                 //입력이 끝나면 입력중이던 내용을 지운다.
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(item_input.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(piece_input.getWindowToken(), 0);
                 now_piece.sub_pieces.add(new Piece(now_entered));
-                item_input.setText("");
+                piece_input.setText("");
                 //다시 내용 갱신
                 refresh_display();
             }
@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 0; j <= i; j++)
                 string += "   ";
         }
-        textView.setText(string.trim());
+        navigator.setText(string.trim());
 
         //ArrayList 갱신
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> piece_list = new ArrayList<>();
         ArrayList<Piece> sub_pieces = now_piece.sub_pieces;
 
         if (sub_pieces.size() != 0) {
@@ -144,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
 
                 if (is_have_memo(piece))
                     str += " ++";
-                list.add(str);
+                piece_list.add(str);
             }
         }
         memo_btn.setVisibility(is_have_memo(now_piece) ? View.VISIBLE : View.INVISIBLE);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, list);
+                android.R.layout.simple_list_item_1, piece_list);
 
         listView.setAdapter(adapter);
 
