@@ -7,74 +7,72 @@ public class SubjectInfo {
     static Piece pp[] = new Piece[20]; //Piece Pointer. 최대 레벨 20 이지만 여기까지 누가 쓸까?
     static int pi = 0;    //Piece pointer Index
 
-    static Piece p1;    //piece level 1
-    static Piece p2;    //piece level 2
-    static Piece p3;    //piece level 3 -> 보통 여기부터 윤곽
-    static Piece p4;    //piece level 4
-    static Piece p5;    //piece level 5
-    static Piece p6;    //piece level 6
-    static Piece p7;    //piece level 7
-    static Piece p8;    //piece level 8
     static final int CUR = 0;
     static final int TEC = 1;
     static final int EVA = 2;
     static final int GUI = 3;
     static final int ADM = 4;
     static final int PSY = 5;
-    static final int PHI = 6;
-    public static void insp(Piece new_piece){ //insert piece
-        pp[pi - 1].put(pp[pi] = new_piece); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    static final int SOC = 6;
+    static final int PHI = 7;
+/*
+    int subject_code = <SUB>;
+
+    _fb(subject_code, "<타이틀0>");
+    {
+        _s();
+        _ip("<타이틀2>");
+        {
+            _s();
+            _ip("<타이틀3>");
+            _e();
+        }
+        _e();
+    } //-> fb 전까지는 _e(); 해줘야한다.
+*/
+
+    public static void _fb(int subject_code, String name, String memo) { //first branch
+        ps.get(subject_code).put(pp[pi] = new Piece(name, memo));
     }
-    public static void _s(){
+
+    public static void _fb(int subject_code, String name) {
+        _fb(subject_code, name, null);
+    }
+
+    public static Piece _ga() { //get above
+        return pp[pi - 1];
+    }
+
+
+    public static void _ip(String name, String memo) { //insert piece 목차 항목 넣기
+        pp[pi - 1].put(pp[pi] = new Piece(name, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    }
+
+    public static void _ip(String name) {
+        _ip(name, null);
+    }
+
+    public static void _ip(Piece init_target_piece) { //globalized 된 Piece 를 가져오는 오버로딩함수
+        pp[pi - 1].put(pp[pi] = init_target_piece);
+    }
+
+    public static void _s() {//start. 목차의 시작
         pi++;
     }
-    public static void _e(){
+
+    public static void _e() {//end. 목차의 끝
         pi--;
     }
-    public static void init_informations(){
-        Cont_00_Curriculum.put_curriculum();
-        Cont_01_Technology.put_engineering();
-        Cont_02_Evaluation.put_eval();
-        Cont_03_Guidance.put_guide();
-        Cont_04_Administration.put_admin();
-        put_psy();
+
+    public static void init_informations() {
+        Cont_00_Curriculum.put_cur();
+        Cont_01_Technology.put_tec();
+        Cont_02_Evaluation.put_eva();
+        Cont_03_Guidance.put_gui();
+        Cont_04_Administration.put_adm();
+        Cont_05_Psychology.put_psy();
+        Cont_06_Sociology.put_soc();
+        Cont_07_Philosophy.put_phi();
     }
 
-/*
-        SubjectInfo.ps.add(new Piece("[타이틀0]"));
-
-        ps.get(order).put(p1 = new Piece("[타이틀1]"));
-        {
-            p1.put(p2 = new Piece("[타이틀2]"));
-            {
-                p2.put(p3 = new Piece("[타이틀3]"));
-                {
-                    p3.put(p4 = new Piece("[타이틀4]"));
-                    {
-                        p4.put(p5 = new Piece("[타이틀5]"));
-                        {
-                            p5.put(p6 = new Piece("[타이틀6]"));
-                            {
-                                p6.put(p7 = new Piece("[타이틀7]"));
-                            }
-                        }
-                    }
-                }
-            }
-        }
- */
-    static void put_psy() {
-        int order = 5;
-
-        SubjectInfo.ps.add(new Piece("교육심리"));
-
-        p1 = new Piece("");
-        ps.get(order).put(p1);
-        {
-            p2 = new Piece("");
-            p1.put(p2);
-            p2 = new Piece("");
-            p1.put(p2);
-        }
-    }
 }
