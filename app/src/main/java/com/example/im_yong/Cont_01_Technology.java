@@ -3,7 +3,7 @@ package com.example.im_yong;
 import static com.example.im_yong.SubjectInfo.TEC;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
-import static com.example.im_yong.SubjectInfo._ga;
+import static com.example.im_yong.SubjectInfo._get_above;
 import static com.example.im_yong.SubjectInfo._ip;
 import static com.example.im_yong.SubjectInfo._s;
 
@@ -25,7 +25,7 @@ public class Cont_01_Technology {
                 _ip("블룸]_ 교수목표 분류");
                 {
                     _s();
-                    CC.bloom = _ga();
+                    CC.Bloom_taxonomy = _get_above();
                     _ip("인지적 영역");
                     {
                         _s();
@@ -48,7 +48,7 @@ public class Cont_01_Technology {
                 _ip("가네]_ 5가지 학습 영역");
                 {
                     _s();
-                    CC.gagne_area = _ga();
+                    CC.Gagne_5_learning_area = _get_above();
                     _ip("언어정보");
                     _ip("지적기능");
                     _ip("인지전략");
@@ -58,7 +58,7 @@ public class Cont_01_Technology {
                 }
                 _e();
             }
-            _ip("행동목표 진술 방식 (aka.수업목표)", "일차방정식을 풀 수 있다.");
+            _ip("행동목표 진술 방식", "aka.수업목표\n일차방정식을 풀 수 있다.");
             {
                 _s();
                 _ip("도착점 행동 진술");
@@ -69,7 +69,7 @@ public class Cont_01_Technology {
             _ip("라이겔루스]_ 처방적 교수이론");
             {
                 _s();
-                CC.rigelus = _ga();
+                CC.Reigeluth_ = _get_above();
                 _ip("교수의 조건");
                 {
                     _s();
@@ -130,7 +130,7 @@ public class Cont_01_Technology {
             _ip("가네]_ 교수이론");
             {
                 _s();
-                _ip(CC.gagne_area); //"가네]_ 학습영역"
+                _ip(CC.Gagne_5_learning_area); //"가네]_ 학습영역"
                 _ip("가네]_ 9가지 수업 사태");
                 {
                     _s();
@@ -183,7 +183,7 @@ public class Cont_01_Technology {
                 }
                 _e();
             }
-            _ip(CC.rigelus);
+            _ip(CC.Reigeluth_);
             _ip("메릴]_ 내용-요소 제시이론");
             {
                 _s();

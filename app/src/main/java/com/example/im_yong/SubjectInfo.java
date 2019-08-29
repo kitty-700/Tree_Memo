@@ -39,8 +39,8 @@ public class SubjectInfo {
         _fb(subject_code, name, null);
     }
 
-    public static Piece _ga() { //get above
-        return pp[pi - 1];
+    public static Piece _get_above() { //get above
+        return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
     }
 
 
