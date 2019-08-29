@@ -18,13 +18,13 @@ public class SubjectInfo {
 /*
     int sc = <SUB>; //subject code
 
-    _fb(sc, "<타이틀0>");
+    _fb(sc, "타이틀0");
     {
         _s();
-        _ip("<타이틀2>");
+        _ip("타이틀2");
         {
             _s();
-            _ip("<타이틀3>");
+            _ip("타이틀3");
             _e();
         }
         _e();
