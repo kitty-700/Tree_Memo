@@ -16,9 +16,9 @@ public class SubjectInfo {
     static final int SOC = 6;
     static final int PHI = 7;
 /*
-    int subject_code = <SUB>;
+    int sc = <SUB>; //subject code
 
-    _fb(subject_code, "<타이틀0>");
+    _fb(sc, "<타이틀0>");
     {
         _s();
         _ip("<타이틀2>");
