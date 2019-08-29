@@ -31,12 +31,12 @@ public class SubjectInfo {
     } //-> fb 전까지는 _e(); 해줘야한다.
 */
 
-    public static void _fb(int subject_code, String name, String memo) { //first branch
-        ps.get(subject_code).put(pp[pi] = new Piece(name, memo));
+    public static void _fb(int subject_code, String title, String memo) { //first branch
+        ps.get(subject_code).put(pp[pi] = new Piece(title, memo));
     }
 
-    public static void _fb(int subject_code, String name) {
-        _fb(subject_code, name, null);
+    public static void _fb(int subject_code, String title) {
+        _fb(subject_code, title, null);
     }
 
     public static Piece _get_above() { //get above
@@ -44,12 +44,12 @@ public class SubjectInfo {
     }
 
 
-    public static void _ip(String name, String memo) { //insert piece 목차 항목 넣기
-        pp[pi - 1].put(pp[pi] = new Piece(name, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    public static void _ip(String title, String memo) { //insert piece 목차 항목 넣기
+        pp[pi - 1].put(pp[pi] = new Piece(title, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
     }
 
-    public static void _ip(String name) {
-        _ip(name, null);
+    public static void _ip(String title) {
+        _ip(title, null);
     }
 
     public static void _ip(Piece init_target_piece) { //globalized 된 Piece 를 가져오는 오버로딩함수
