@@ -1,20 +1,21 @@
 package com.example.im_yong;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     TextView textView;
     Button memo_btn;
+    Button insert_btn;
+    EditText item_input;
     Stack<Piece> pieceStack; //최상위 요소 하나는 있어야하므로 최소 크기가 1임.
     Piece root_piece = new Piece("교육학");
     Piece now_piece;
@@ -33,9 +36,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.now_where);
-        listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.item_list);
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
+        item_input = (EditText) findViewById(R.id.item_input);
+        insert_btn = (Button) findViewById(R.id.insert_item_btn);
 
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setTitle("Kitty 임용");
         pieceStack = new Stack<Piece>();
         mainActivity = this;
@@ -53,17 +60,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
-                if (picked_piece.sub_pieces.size() == 0) {
-                    if (is_have_memo(picked_piece))
-                        display_memo(picked_piece);
-                    else
-                        Toast.makeText(mainActivity, "현재 내용이 없습니다.", Toast.LENGTH_LONG).show();
-                    return;
+                String toast_msg = "";
+                if (is_have_sub_pieces(picked_piece)==false){
+                    toast_msg += "마지막입니다.";
                 }
                 pieceStack.push(picked_piece);
                 now_piece = picked_piece;
-
                 refresh_display();
+                //만약 맨 끝단에 내용이 없다면... 심심하니까 메모라도 띄워주자
+                if (is_have_sub_pieces(picked_piece)==false){
+                    if (is_have_memo(now_piece)) {
+                        display_memo(now_piece);
+                        toast_msg += "\n메모라도 보십시오.";
+                    }
+                }
+                //메모 있으면 길게, 없으면 짧게 메시지를 띄운다.
+                if(!toast_msg.equals("")){
+                    Toast.makeText(mainActivity, toast_msg, toast_msg.equals("마지막입니다.")?Toast.LENGTH_LONG:Toast.LENGTH_SHORT).show();
+                }
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -73,6 +87,24 @@ public class MainActivity extends AppCompatActivity {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
                 display_memo(picked_piece);
                 return true;
+            }
+        });
+        insert_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //별 의미없는 입력이면 무시한다.
+                String now_entered = item_input.getText().toString().trim();
+                if(now_entered.equals("")) {
+                    item_input.setText("");
+                    return;
+                }
+                //입력이 끝나면 입력중이던 내용을 지운다.
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(item_input.getWindowToken(), 0);
+                now_piece.sub_pieces.add(new Piece(now_entered));
+                item_input.setText("");
+                //다시 내용 갱신
+                refresh_display();
             }
         });
         refresh_display();
@@ -102,21 +134,20 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> list = new ArrayList<>();
         ArrayList<Piece> sub_pieces = now_piece.sub_pieces;
 
-        if (sub_pieces.size() == 0) {
-            Toast.makeText(mainActivity, "현재 내용이 없습니다.", Toast.LENGTH_LONG).show();
-        } else {
+        if (sub_pieces.size() != 0) {
+            //현재 가진 piece들의 정보를 문자열로 만들어 추가한다.
             for (Piece piece : sub_pieces) {
-                String child_counted_str = piece.name;
+                String str = piece.name;
                 int count = piece.sub_pieces.size();
                 if (count != 0)
-                    child_counted_str += " [" + count + " / " + piece.children_count() + "]";
+                    str += " [" + count + " / " + piece.children_count() + "]";
 
                 if (is_have_memo(piece))
-                    child_counted_str += " ++";
-                list.add(child_counted_str);
+                    str += " ++";
+                list.add(str);
             }
         }
-        memo_btn.setVisibility( is_have_memo(now_piece) ? View.VISIBLE : View.INVISIBLE );
+        memo_btn.setVisibility(is_have_memo(now_piece) ? View.VISIBLE : View.INVISIBLE);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -129,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
 
     boolean is_have_memo(Piece piece) {
         if (piece.memo != null && piece.memo != "")
+            return true;
+        return false;
+    }
+
+    boolean is_have_sub_pieces(Piece piece) {
+        if (piece.sub_pieces.size() != 0)
             return true;
         return false;
     }
