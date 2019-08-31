@@ -1,5 +1,7 @@
 package com.example.im_yong;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class SubjectInfo {
@@ -66,13 +68,37 @@ public class SubjectInfo {
 
     public static void init_informations() {
         Cont_00_Curriculum.put_cur();
+        if(pi!=0)
+            Log.e("Kitty","Cont_01_Technology 에러");
+
         Cont_01_Technology.put_tec();
+        if(pi!=0)
+            Log.e("Kitty","Cont_01_Technology 에러");
+
         Cont_02_Evaluation.put_eva();
+        if(pi!=0)
+            Log.e("Kitty","Cont_02_Evaluation 에러");
+
         Cont_03_Guidance.put_gui();
+        if(pi!=0)
+            Log.e("Kitty","Cont_03_Guidance 에러");
+
         Cont_04_Administration.put_adm();
+        if(pi!=0)
+            Log.e("Kitty","Cont_04_Administration 에러");
+
         Cont_05_Psychology.put_psy();
+        if(pi!=0)
+            Log.e("Kitty","Cont_05_Psychology 에러");
+
         Cont_06_Sociology.put_soc();
+        if(pi!=0)
+            Log.e("Kitty","Cont_06_Sociology 에러");
+
         Cont_07_Philosophy.put_phi();
+        if(pi!=0)
+            Log.e("Kitty","Cont_07_Philosophy 에러");
+
     }
 
 }
