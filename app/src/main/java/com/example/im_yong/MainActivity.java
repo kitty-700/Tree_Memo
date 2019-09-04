@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -54,30 +55,38 @@ public class MainActivity extends AppCompatActivity {
                     display_memo(now_piece);
             }
         });
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (is_have_sub_pieces(now_piece) == false) {
+                    onBackPressed();
+                }
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
-                if(picked_piece.title.equals(CC.divide_line))
+                if (picked_piece.title.equals(CC.divide_line))
                     return;
                 String toast_msg = "";
                 //마지막일 경우 메세지 띄우기 (근데 일단 띄우는건 보류 후 마지막에 띄움)
-                if (is_have_sub_pieces(picked_piece)==false){
+                if (is_have_sub_pieces(picked_piece) == false) {
                     toast_msg += "마지막입니다.";
                 }
                 pieceStack.push(picked_piece);
                 now_piece = picked_piece;
                 refresh_display();
                 //만약 맨 끝단에 내용이 없다면... 심심하니까 메모라도 띄워주자
-                if (is_have_sub_pieces(picked_piece)==false){
+                if (is_have_sub_pieces(picked_piece) == false) {
                     if (is_have_memo(now_piece)) {
                         display_memo(now_piece);
                         toast_msg += "\n메모라도 보십시오.";
                     }
                 }
                 //메모 있으면 길게, 없으면 짧게 메시지를 띄운다.
-                if(!toast_msg.equals("")){
-                    Toast.makeText(mainActivity, toast_msg, toast_msg.equals("마지막입니다.")?Toast.LENGTH_LONG:Toast.LENGTH_SHORT).show();
+                if (!toast_msg.equals("")) {
+                    Toast.makeText(mainActivity, toast_msg, toast_msg.equals("마지막입니다.") ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -95,20 +104,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //별 의미없는 입력이면 무시한다.
                 String now_entered = piece_input.getText().toString().trim();
-                if(now_entered.equals("")) {
+                if (now_entered.equals("")) {
                     piece_input.setText("");
                     return;
                 }
-                //입력이 끝나면 입력중이던 내용을 지운다.
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(piece_input.getWindowToken(), 0);
+                //입력이 끝나면 입력중이던 내용을 지우고 닫는다.
                 now_piece.sub_pieces.add(new Piece(now_entered));
-                piece_input.setText("");
+                keyboard_kill(piece_input);
                 //다시 내용 갱신
                 refresh_display();
             }
         });
         refresh_display();
+    }
+
+    void keyboard_kill(EditText editText) { //입력중이던 내용을 지우고 닫는다.
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(piece_input.getWindowToken(), 0);
+        if (editText != null) {
+            editText.setText("");
+        }
     }
 
     void display_memo(Piece picked_piece) {
