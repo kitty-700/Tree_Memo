@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                 piece_list.add(str);
             }
         }
-        memo_btn.setVisibility(is_have_memo(now_piece) ? View.VISIBLE : View.INVISIBLE);
+        memo_btn.setVisibility(is_have_memo(now_piece) ? View.VISIBLE : View.GONE);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,

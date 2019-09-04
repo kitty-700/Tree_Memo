@@ -33,7 +33,7 @@
             android:id="@+id/item_list_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/divide_line_ABC"
+            android:layout_above="@id/display_memo_btn"
             android:orientation="vertical">
 
             <ListView
@@ -44,22 +44,22 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/divide_line_ABC"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_above="@id/display_memo_btn"
-            android:background="#000000" />
-
         <Button
             android:id="@+id/display_memo_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/input_set"
+            android:layout_above="@id/divide_line_over_input_set"
             android:layout_gravity="right|top"
             android:layout_margin="3dp"
             android:background="#99daff1a"
             android:text="메모 확인" />
+
+        <TextView
+            android:id="@+id/divide_line_over_input_set"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/input_set"
+            android:background="#000000" />
 
         <LinearLayout
             android:id="@+id/input_set"
