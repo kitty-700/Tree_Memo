@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
     MainActivity mainActivity;
     ListView listView;
+    LinearLayout listViewCover;
     TextView navigator;
     Button memo_btn;
     Button piece_insert_btn;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         navigator = (TextView) findViewById(R.id.now_where);
         listView = (ListView) findViewById(R.id.item_list);
+        listViewCover= (LinearLayout) findViewById(R.id.item_list_cover);
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
         piece_input = (EditText) findViewById(R.id.item_input);
         piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     display_memo(now_piece);
             }
         });
-        listView.setOnClickListener(new View.OnClickListener() {
+        listViewCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (is_have_sub_pieces(now_piece) == false) {

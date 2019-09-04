@@ -164,7 +164,9 @@ public class Cont_00_Curriculum {
                     _ip("영교육과정");
                     _e();
                 }
+                _e();
             }
+            _e();
         }
 
         _fb(sc, "우리나라의 교육과정");

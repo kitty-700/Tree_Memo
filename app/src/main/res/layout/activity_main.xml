@@ -29,12 +29,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/item_list"
+        <LinearLayout
+            android:id="@+id/item_list_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/divide_line_ABC"></ListView>
+            android:layout_above="@id/divide_line_ABC"
+            android:orientation="vertical">
 
+            <ListView
+                android:id="@+id/item_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/divide_line_ABC"

@@ -123,6 +123,7 @@ public class Cont_04_Administration {
                 }
                 _e();
             }
+            _e();
         }
         _fb(sc, "조직론");
         {
@@ -405,6 +406,9 @@ public class Cont_04_Administration {
             _e();
         }
         _fb(sc, "└ 학급경영");
-        _e();
+        {
+            _s();
+            _e();
+        }
     }
 }

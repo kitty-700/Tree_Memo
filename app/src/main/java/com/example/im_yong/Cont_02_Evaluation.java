@@ -42,6 +42,7 @@ public class Cont_02_Evaluation {
                     _ip("인본주의적 교육관");
                     _e();
                 }
+                _e();
             }
             _ip("교육평가 모형");
             {
@@ -51,6 +52,7 @@ public class Cont_02_Evaluation {
                 _ip("스터플빔]_ 의사결정 촉진모형");
                 _e();
             }
+            _e();
         }
 
         _fb(sc, "교육평가의 유형");
@@ -92,6 +94,7 @@ public class Cont_02_Evaluation {
                 _ip("대인관계");
                 _e();
             }
+            _e();
         }
 
         _fb(sc, "평가도구의 측정학적 특징");
