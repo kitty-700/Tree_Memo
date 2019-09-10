@@ -7,10 +7,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SubjectInfo {
-    public static ArrayList<Piece> ps = new ArrayList<Piece>(); //pieces
+    static ArrayList<Piece> ps = new ArrayList<Piece>(); //pieces
     static Piece pp[] = new Piece[20]; //Piece Pointer. 최대 레벨 20 이지만 여기까지 누가 쓸까?
     static int pi = 0;    //Piece pointer Index
     static MainActivity mainActivity;
+    //////////////////final members
     static final int CUR = 0;
     static final int TEC = 1;
     static final int EVA = 2;
@@ -19,6 +20,13 @@ public class SubjectInfo {
     static final int PSY = 5;
     static final int SOC = 6;
     static final int PHI = 7;
+
+    static void init_static_members() {
+        pi = 0;
+        mainActivity = null;
+        ps = new ArrayList<>();
+        pp = new Piece[20];
+    }
 /*
     int sc = <SUB>; //subject code
 

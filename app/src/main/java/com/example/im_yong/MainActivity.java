@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
         piece_input = (EditText) findViewById(R.id.item_input);
         piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
-
+        SubjectInfo.init_static_members();
         SubjectInfo.mainActivity = this;
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); //키보드 따라서 화면 올라가도록 하기
         pieceStack = new Stack<Piece>();
