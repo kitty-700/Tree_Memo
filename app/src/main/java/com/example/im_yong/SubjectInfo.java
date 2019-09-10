@@ -1,6 +1,8 @@
 package com.example.im_yong;
 
+import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ public class SubjectInfo {
     public static ArrayList<Piece> ps = new ArrayList<Piece>(); //pieces
     static Piece pp[] = new Piece[20]; //Piece Pointer. 최대 레벨 20 이지만 여기까지 누가 쓸까?
     static int pi = 0;    //Piece pointer Index
-
+    static MainActivity mainActivity;
     static final int CUR = 0;
     static final int TEC = 1;
     static final int EVA = 2;
@@ -40,6 +42,8 @@ public class SubjectInfo {
     public static void _fb(int subject_code, String title) {
         if (pi != 0) {
             Log.e("kitty", subject_code + " error in " + title);
+            if (mainActivity != null)
+                Toast.makeText(mainActivity, "데이터 파일에 에러가 있는듯\n" + subject_code + "-" + title, Toast.LENGTH_LONG).show();
         }
         pi = 0;
         _fb(subject_code, title, null);

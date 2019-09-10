@@ -40,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         navigator = (TextView) findViewById(R.id.now_where);
         listView = (ListView) findViewById(R.id.item_list);
-        listViewCover= (LinearLayout) findViewById(R.id.item_list_cover);
+        listViewCover = (LinearLayout) findViewById(R.id.item_list_cover);
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
         piece_input = (EditText) findViewById(R.id.item_input);
         piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
 
+        SubjectInfo.mainActivity = this;
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); //키보드 따라서 화면 올라가도록 하기
         pieceStack = new Stack<Piece>();
         mainActivity = this;
@@ -84,12 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 if (is_have_sub_pieces(picked_piece) == false) {
                     if (is_have_memo(now_piece)) {
                         display_memo(now_piece);
-                        toast_msg += "\n메모라도 보십시오.";
                     }
                 }
-                //메모 있으면 길게, 없으면 짧게 메시지를 띄운다.
                 if (!toast_msg.equals("")) {
-                    Toast.makeText(mainActivity, toast_msg, toast_msg.equals("마지막입니다.") ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, toast_msg, Toast.LENGTH_LONG).show();
                 }
             }
         });
