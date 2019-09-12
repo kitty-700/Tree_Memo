@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo._ip;
 import static com.example.im_yong.SubjectInfo._s;
 
 
-public class Cont_03_Guidance {
+public class Cont_Edu_03_Guidance {
     static void put_gui() {
         int sc = GUI; //subject code
 

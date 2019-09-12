@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo._get_above;
 import static com.example.im_yong.SubjectInfo._ip;
 import static com.example.im_yong.SubjectInfo._s;
 
-public class Cont_01_Technology {
+public class Cont_Edu_01_Technology {
 
     static void put_tec() {
         int sc = TEC; //subject code

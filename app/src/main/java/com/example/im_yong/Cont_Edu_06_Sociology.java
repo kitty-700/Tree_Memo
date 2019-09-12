@@ -6,7 +6,7 @@ import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._s;
 import static com.example.im_yong.SubjectInfo._ip;
 
-public class Cont_06_Sociology {
+public class Cont_Edu_06_Sociology {
     static void put_soc() {
         int sc = SOC; //subject code
 

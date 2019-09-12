@@ -1,6 +1,5 @@
 package com.example.im_yong;
 
-import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -83,13 +82,13 @@ public class SubjectInfo {
     }
 
     public static void init_informations() {
-        Cont_00_Curriculum.put_cur();
-        Cont_01_Technology.put_tec();
-        Cont_02_Evaluation.put_eva();
-        Cont_03_Guidance.put_gui();
-        Cont_04_Administration.put_adm();
-        Cont_05_Psychology.put_psy();
-        Cont_06_Sociology.put_soc();
-        Cont_07_Philosophy.put_phi();
+        Cont_Edu_00_Curriculum.put_cur();
+        Cont_Edu_01_Technology.put_tec();
+        Cont_Edu_02_Evaluation.put_eva();
+        Cont_Edu_03_Guidance.put_gui();
+        Cont_Edu_04_Administration.put_adm();
+        Cont_Edu_05_Psychology.put_psy();
+        Cont_Edu_06_Sociology.put_soc();
+        Cont_Edu_07_Philosophy.put_phi();
     }
 }

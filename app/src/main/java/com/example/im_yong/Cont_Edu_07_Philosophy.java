@@ -6,7 +6,7 @@ import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._ip;
 import static com.example.im_yong.SubjectInfo._s;
 
-public class Cont_07_Philosophy {
+public class Cont_Edu_07_Philosophy {
     static void put_phi() {
         int sc = PHI; //subject code
 
