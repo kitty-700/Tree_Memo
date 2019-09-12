@@ -6,9 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -158,14 +156,19 @@ public class MainActivity extends AppCompatActivity {
                 String str = piece.title;
                 int count = piece.sub_pieces.size();
                 if (count != 0)
-                    str += " [" + count + " / " + piece.children_count() + "]";
+                    str += " [" + count + " / " + piece.children_counting() + "]";
 
                 if (is_have_memo(piece))
                     str += " ++";
                 piece_list.add(str);
             }
         }
-        memo_btn.setVisibility(is_have_memo(now_piece) ? View.VISIBLE : View.GONE);
+        if (is_have_memo(now_piece)) {
+            memo_btn.setVisibility(View.VISIBLE);
+            memo_btn.setText(now_piece.memo);
+        } else {
+            memo_btn.setVisibility(View.GONE);
+        }
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
