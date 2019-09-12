@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         memo_btn = (Button) findViewById(R.id.display_memo_btn);
         piece_input = (EditText) findViewById(R.id.item_input);
         piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
+
         SubjectInfo.init_static_members();
         SubjectInfo.mainActivity = this;
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); //키보드 따라서 화면 올라가도록 하기
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         }
         navigator.setText(string.trim());
 
-        //ArrayList 갱신
+        //리스트 갱신
         ArrayList<String> piece_list = new ArrayList<>();
         ArrayList<Piece> sub_pieces = now_piece.sub_pieces;
 
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    String fill_color() {   //Listview 배경 채우기
+    String fill_color() {   //리스트 배경 채우기
         String red_color_code = "FF0000";
         String color = "FF0000";
         int step = 8; //Depth 가 깊어질 때마다 얼마나 배경이 진해질지를 결정
