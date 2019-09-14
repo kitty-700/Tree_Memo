@@ -1,10 +1,8 @@
 package com.example.im_yong;
 
 import static com.example.im_yong.Cont_Detail_Part.PSY;
-import static com.example.im_yong.SubjectInfo._e;
-import static com.example.im_yong.SubjectInfo._fb;
-import static com.example.im_yong.SubjectInfo._s;
-import static com.example.im_yong.SubjectInfo._ip;
+import static com.example.im_yong.SubjectInfo.*;
+
 
 public class Cont_Edu_05_Psychology {
     static void put_psy() {

@@ -1,10 +1,7 @@
 package com.example.im_yong;
 
 import static com.example.im_yong.Cont_Detail_Part.CUR;
-import static com.example.im_yong.SubjectInfo._e;
-import static com.example.im_yong.SubjectInfo._fb;
-import static com.example.im_yong.SubjectInfo._s;
-import static com.example.im_yong.SubjectInfo._ip;
+import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_00_Curriculum {
     static void put_cur() {

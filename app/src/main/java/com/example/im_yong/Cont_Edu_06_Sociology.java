@@ -1,10 +1,7 @@
 package com.example.im_yong;
 
 import static com.example.im_yong.Cont_Detail_Part.SOC;
-import static com.example.im_yong.SubjectInfo._e;
-import static com.example.im_yong.SubjectInfo._fb;
-import static com.example.im_yong.SubjectInfo._s;
-import static com.example.im_yong.SubjectInfo._ip;
+import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_06_Sociology {
     static void put_soc() {

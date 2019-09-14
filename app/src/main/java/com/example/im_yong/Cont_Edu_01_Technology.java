@@ -1,11 +1,7 @@
 package com.example.im_yong;
 
 import static com.example.im_yong.Cont_Detail_Part.TEC;
-import static com.example.im_yong.SubjectInfo._e;
-import static com.example.im_yong.SubjectInfo._fb;
-import static com.example.im_yong.SubjectInfo._get_above;
-import static com.example.im_yong.SubjectInfo._ip;
-import static com.example.im_yong.SubjectInfo._s;
+import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_01_Technology {
 
