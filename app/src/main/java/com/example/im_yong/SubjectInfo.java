@@ -54,24 +54,24 @@ public class SubjectInfo {
     }
 
     ///////////////////
-    public static void _ip(String title, Integer alone, Integer importance, String memo) {//insert piece 목차 항목 넣기
-        pp[pi - 1].put(pp[pi] = new Piece(title, alone, importance, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    public static void _ip(String title, Integer al, Integer itn, String memo) {//insert piece 목차 항목 넣기
+        pp[pi - 1].put(pp[pi] = new Piece(title, al, itn, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
     }
 
     public static void _ip(String title, String memo) {
         _ip(title, null, null, memo);
     }
 
-    public static void _ip(String title, Integer alone) {
-        _ip(title, alone, null, null);
+    public static void _ip(String title, Integer al) {
+        _ip(title, al, null, null);
     }
 
-    public static void _ip(String title, Integer alone, Integer importance) {
-        _ip(title, alone, importance, null);
+    public static void _ip(String title, Integer al, Integer itn) {
+        _ip(title, al, itn, null);
     }
 
-    public static void _ip(String title, Integer alone, String memo) {
-        _ip(title, alone, null, memo);
+    public static void _ip(String title, Integer al, String memo) {
+        _ip(title, al, null, memo);
     }
 
     public static void _ip(String title) {
