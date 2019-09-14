@@ -104,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
                     case "":
                         return;
                     //특정 명령어를 입력한거면 해당 기능을 수행한다.
-                    case "!QQ":
+                    case "!qq":
                         perform_QQ();
                         break;
-                    case "!TR":
+                    case "!tr":
                         perform_TR();
                         break;
                     //정상적인 명령이면 Piece를 추가한다.
