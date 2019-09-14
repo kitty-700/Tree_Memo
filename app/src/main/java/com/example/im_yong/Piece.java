@@ -10,14 +10,17 @@ public class Piece {
     String memo;
     int children_count;
     Integer itn; //importance. 중요한 정도 0,,,,,,10 or null
-    Integer al; //alone. 단일 용어로 쓰이는지 1(O) or null
+    Boolean al; //alone. 단일 용어로 쓰이는지 1(O) or null
 
-    Piece(String title, Integer al, Integer itn, String memo) {
+    Piece(String title, Boolean al, Integer itn, String memo) {
         this.ID = this.ID_next++;
         this.title = title;
         this.memo = memo;
         this.children_count = 0;
-        this.al = al;
+        if (al == null)
+            this.al = false;
+        else
+            this.al = al;
         this.itn = itn;
     }
 
@@ -29,15 +32,15 @@ public class Piece {
         this(title, null, null, memo);
     }
 
-    Piece(String title, Integer al) {
+    Piece(String title, Boolean al) {
         this(title, al, null, null);
     }
 
-    Piece(String title, Integer al, Integer itn) {
+    Piece(String title, Boolean al, Integer itn) {
         this(title, al, itn, null);
     }
 
-    Piece(String title, Integer al, String memo) {
+    Piece(String title, Boolean al, String memo) {
         this(title, al, null, memo);
     }
 
