@@ -3,6 +3,8 @@ package com.example.im_yong;
 import java.util.ArrayList;
 
 public class Piece {
+    static int ID_next = 0;
+    int ID;
     String title;
     ArrayList<Piece> sub_pieces = new ArrayList<Piece>();
     String memo;
@@ -11,6 +13,7 @@ public class Piece {
     Integer al; //alone. 단일 용어로 쓰이는지 1(O) or null
 
     Piece(String title, Integer al, Integer itn, String memo) {
+        this.ID = this.ID_next++;
         this.title = title;
         this.memo = memo;
         this.children_count = 0;
