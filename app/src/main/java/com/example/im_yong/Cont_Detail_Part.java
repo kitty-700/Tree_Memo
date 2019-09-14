@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-public class Detail_Part {
+public class Cont_Detail_Part {
     static final String main_thema = "교육학";
     static final int CUR = 0;
     static final int TEC = 1;

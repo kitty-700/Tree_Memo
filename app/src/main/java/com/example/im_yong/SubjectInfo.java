@@ -84,6 +84,6 @@ public class SubjectInfo {
     }
 
     public static void init_informations() {
-        Detail_Part.init_informations();
+        Cont_Detail_Part.init_informations();
     }
 }

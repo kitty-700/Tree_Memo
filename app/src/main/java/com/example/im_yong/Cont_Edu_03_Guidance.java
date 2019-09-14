@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.Detail_Part.GUI;
+import static com.example.im_yong.Cont_Detail_Part.GUI;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._ip;
@@ -11,7 +11,7 @@ public class Cont_Edu_03_Guidance {
     static void put_gui() {
         int sc = GUI; //subject code
 
-        Detail_Part.insert_into_ps("생활지도 & 상담");
+        Cont_Detail_Part.insert_into_ps("생활지도 & 상담");
 
         _fb(sc, "생활지도");
         {

@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.Detail_Part.PSY;
+import static com.example.im_yong.Cont_Detail_Part.PSY;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._s;
@@ -10,7 +10,7 @@ public class Cont_Edu_05_Psychology {
     static void put_psy() {
         int sc = PSY; //subject code
 
-        Detail_Part.insert_into_ps("교육심리");
+        Cont_Detail_Part.insert_into_ps("교육심리");
 
         _fb(sc, "발달이론");
         {

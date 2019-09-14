@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.Detail_Part.PHI;
+import static com.example.im_yong.Cont_Detail_Part.PHI;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._ip;
@@ -10,7 +10,7 @@ public class Cont_Edu_07_Philosophy {
     static void put_phi() {
         int sc = PHI; //subject code
 
-        Detail_Part.insert_into_ps("교육철학");
+        Cont_Detail_Part.insert_into_ps("교육철학");
 
         _fb(sc, "기초");
         {
