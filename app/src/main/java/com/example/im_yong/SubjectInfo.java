@@ -60,15 +60,32 @@ public class SubjectInfo {
         return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
     }
 
+    ///////////////////
+    public static void _ip(String title, Integer alone, Integer importance, String memo) {//insert piece 목차 항목 넣기
+        pp[pi - 1].put(pp[pi] = new Piece(title, alone, importance, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    }
 
-    public static void _ip(String title, String memo) { //insert piece 목차 항목 넣기
-        pp[pi - 1].put(pp[pi] = new Piece(title, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    public static void _ip(String title, String memo) {
+        _ip(title, null, null, memo);
+    }
+
+    public static void _ip(String title, Integer alone) {
+        _ip(title, alone, null, null);
+    }
+
+    public static void _ip(String title, Integer alone, Integer importance) {
+        _ip(title, alone, importance, null);
+    }
+
+    public static void _ip(String title, Integer alone, String memo) {
+        _ip(title, alone, null, memo);
     }
 
     public static void _ip(String title) {
-        _ip(title, null);
+        _ip(title, null, null, null);
     }
 
+    ///////////////////
     public static void _ip(Piece init_target_piece) { //globalized 된 Piece 를 가져오는 오버로딩함수
         pp[pi - 1].put(pp[pi] = init_target_piece);
     }

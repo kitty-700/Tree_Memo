@@ -7,10 +7,10 @@ public class Piece {
     ArrayList<Piece> sub_pieces = new ArrayList<Piece>();
     String memo;
     int children_count;
-    int importance; //중요한 정도 0,,,,,,10 or -1
-    int alone; //단일 용어로 쓰이는지 0(X), 1(O) or -1
+    Integer importance; //중요한 정도 0,,,,,,10 or null
+    Integer alone; //단일 용어로 쓰이는지 0(X), 1(O) or null
 
-    Piece(String title, int alone, int importance, String memo) {
+    Piece(String title, Integer alone, Integer importance, String memo) {
         this.title = title;
         this.memo = memo;
         this.children_count = 0;
@@ -19,14 +19,23 @@ public class Piece {
     }
 
     Piece(String title) {
-        this(title, -1, -1, null);
+        this(title, null, null, null);
     }
 
-    Piece(String title, int alone) {
-        this(title, alone, -1, null);
+    Piece(String title, String memo) {
+        this(title, null, null, memo);
     }
-    Piece(String title, int alone, int importance) {
+
+    Piece(String title, Integer alone) {
+        this(title, alone, null, null);
+    }
+
+    Piece(String title, Integer alone, Integer importance) {
         this(title, alone, importance, null);
+    }
+
+    Piece(String title, Integer alone, String memo) {
+        this(title, alone, null, memo);
     }
 
     void put(Piece piece) {
