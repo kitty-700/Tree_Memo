@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.SubjectInfo.CUR;
+import static com.example.im_yong.Detail_Part.CUR;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._s;
@@ -10,9 +10,7 @@ public class Cont_Edu_00_Curriculum {
     static void put_cur() {
         int sc = CUR; //subject code
 
-
-        SubjectInfo.ps.add(new Piece("교육과정 (￠)"));
-
+        Detail_Part.insert_into_ps("교육과정 (￠)");
 
         _fb(sc, "핵심");
         {
@@ -26,20 +24,20 @@ public class Cont_Edu_00_Curriculum {
             _e();
         }
 
-        _fb(sc, "￠의 유행");
+        _fb(sc, "￠의 유형");
         {
             _s();
             _ip("층위에 따른");
             {
                 _s();
-                _ip("공식적 ￠", "공적인 문서 속에 담긴 교육계획");
-                _ip("잠재적 ￠", "학교에 의해 의도되지는 않았지만 학교생활을 하며 은연 중에 갖게되는 가치관, 태도, 행동의 변화");
+                _ip("공식적 ￠", 1, 10, "공적인 문서 속에 담긴 교육계획");
+                _ip("잠재적 ￠", 1, "학교에 의해 의도되지는 않았지만 학교생활을 하며 은연 중에 갖게되는 가치관, 태도, 행동의 변화");
                 {
                     _s();
                     _ip("원천");
                     {
                         _s();
-                        _ip("군집성");
+                        _ip("군집성", 1, "s");
                         _ip("강요성");
                         _ip("위계성");
                         _ip("상 & 벌");
@@ -276,7 +274,7 @@ public class Cont_Edu_00_Curriculum {
                         _ip("영 ￠ 존재 지적");
                         _e();
                     }
-                    _ip("평가","￠ 전반에 걸친 활동");
+                    _ip("평가", "￠ 전반에 걸친 활동");
                     {
                         _s();
                         _ip("참평가");
@@ -374,13 +372,13 @@ public class Cont_Edu_00_Curriculum {
                     _ip("형성평가·수행평가·정의적 특성 평가 강화");
                     _e();
                 }
-                _ip("교육과정 재구성","주제에 맞는 학습활동을 할 수 있도록 교육목표·내용·교수-학습 방법·평가 방법 등을 조정하여 교사 자신의 교육과정을 수립하는 것");
+                _ip("교육과정 재구성", "주제에 맞는 학습활동을 할 수 있도록 교육목표·내용·교수-학습 방법·평가 방법 등을 조정하여 교사 자신의 교육과정을 수립하는 것");
                 {
                     _s();
                     _ip("절차");
                     {
                         _s();
-                        _ip("재구성을 위한 분석","교육과정 분석\n학생의 특성과 수준\n학교 여건");
+                        _ip("재구성을 위한 분석", "교육과정 분석\n학생의 특성과 수준\n학교 여건");
                         _ip("재구성 유형 결정");
                         _ip("목표 재구성");
                         _ip("내용 재구성");

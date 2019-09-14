@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.SubjectInfo.EVA;
+import static com.example.im_yong.Detail_Part.EVA;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._ip;
@@ -10,7 +10,7 @@ public class Cont_Edu_02_Evaluation {
     static void put_eva() {
         int sc = EVA; //subject code
 
-        SubjectInfo.ps.add(new Piece("교육평가 & 교육연구"));
+        Detail_Part.insert_into_ps("교육평가 & 교육연구");
 
         _fb(sc, "교육평가의 의의");
         {

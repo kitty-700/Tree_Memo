@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         this.mainActivity = this;
         this.pieceStack = new Stack<Piece>();
 
-        root_piece = new Piece("교육학");
+        root_piece = new Piece(CC.main_thema);
         pieceStack.push(root_piece);
         now_piece = root_piece;
     }

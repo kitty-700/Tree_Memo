@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.SubjectInfo.ADM;
+import static com.example.im_yong.Detail_Part.ADM;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._ip;
@@ -10,7 +10,7 @@ public class Cont_Edu_04_Administration {
     static void put_adm() {
         int sc = ADM; //subject code
 
-        SubjectInfo.ps.add(new Piece("교육행정"));
+        Detail_Part.insert_into_ps("교육행정");
 
         _fb(sc, "체제이론");
         {

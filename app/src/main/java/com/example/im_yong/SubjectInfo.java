@@ -11,14 +11,6 @@ public class SubjectInfo {
     static int pi;    //Piece pointer Index
     static MainActivity mainActivity;
     //////////////////final members
-    static final int CUR = 0;
-    static final int TEC = 1;
-    static final int EVA = 2;
-    static final int GUI = 3;
-    static final int ADM = 4;
-    static final int PSY = 5;
-    static final int SOC = 6;
-    static final int PHI = 7;
 /*
     int sc = <SUB>; //subject code
 
@@ -92,13 +84,6 @@ public class SubjectInfo {
     }
 
     public static void init_informations() {
-        Cont_Edu_00_Curriculum.put_cur();
-        Cont_Edu_01_Technology.put_tec();
-        Cont_Edu_02_Evaluation.put_eva();
-        Cont_Edu_03_Guidance.put_gui();
-        Cont_Edu_04_Administration.put_adm();
-        Cont_Edu_05_Psychology.put_psy();
-        Cont_Edu_06_Sociology.put_soc();
-        Cont_Edu_07_Philosophy.put_phi();
+        Detail_Part.init_informations();
     }
 }

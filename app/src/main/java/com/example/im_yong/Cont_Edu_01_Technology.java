@@ -1,6 +1,6 @@
 package com.example.im_yong;
 
-import static com.example.im_yong.SubjectInfo.TEC;
+import static com.example.im_yong.Detail_Part.TEC;
 import static com.example.im_yong.SubjectInfo._e;
 import static com.example.im_yong.SubjectInfo._fb;
 import static com.example.im_yong.SubjectInfo._get_above;
@@ -12,7 +12,7 @@ public class Cont_Edu_01_Technology {
     static void put_tec() {
         int sc = TEC; //subject code
 
-        SubjectInfo.ps.add(new Piece("교수학습 & 교육공학"));
+        Detail_Part.insert_into_ps("교수학습 & 교육공학");
 
         _fb(sc, "교수학습의 이해");
         {
