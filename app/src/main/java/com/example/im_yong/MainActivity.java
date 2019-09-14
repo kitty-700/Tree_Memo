@@ -96,22 +96,35 @@ public class MainActivity extends AppCompatActivity {
         piece_insert_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //별 의미없는 입력이면 무시한다.
                 String now_entered = piece_input.getText().toString().trim();
-                if (now_entered.equals("")) {
-                    piece_input.setText("");
-                    return;
+                switch(now_entered){
+                    //별 의미없는 입력이면 무시한다.
+                    case "":
+                        return;
+                    //특정 명령어를 입력한거면 해당 기능을 수행한다.
+                    case "!QQ":
+                        perform_QQ();
+                        break;
+                    case "!TR":
+                        perform_TR();
+                        break;
+                    //정상적인 명령이면 Piece를 추가한다.
+                    default:
+                        now_piece.sub_pieces.add(new Piece(now_entered));
+                        break;
                 }
-                //입력이 끝나면 입력중이던 내용을 지우고 닫는다.
-                now_piece.sub_pieces.add(new Piece(now_entered));
                 keyboard_kill(piece_input);
-                //다시 내용 갱신
                 refresh_display();
             }
         });
         refresh_display();
     }
+    void perform_QQ(){ //Quiz 로
 
+    }
+    void perform_TR(){ //Tree 형태로 표현
+
+    }
     void keyboard_kill(EditText editText) { //입력중이던 내용을 지우고 닫는다.
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(piece_input.getWindowToken(), 0);
