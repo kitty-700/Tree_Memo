@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -72,11 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
                 if (picked_piece.title.equals(CC.divide_line))
                     return;
-                String toast_msg = "";
-                //마지막일 경우 메세지 띄우기 (근데 일단 띄우는건 보류 후 마지막에 띄움)
-                if (is_have_sub_pieces(picked_piece) == false) {
-                    toast_msg += "마지막입니다.";
-                }
                 pieceStack.push(picked_piece);
                 now_piece = picked_piece;
                 refresh_display();
@@ -85,9 +81,6 @@ public class MainActivity extends AppCompatActivity {
                     if (is_have_memo(now_piece)) {
                         display_memo(now_piece);
                     }
-                }
-                if (!toast_msg.equals("")) {
-                    Toast.makeText(mainActivity, toast_msg, Toast.LENGTH_LONG).show();
                 }
             }
         });
