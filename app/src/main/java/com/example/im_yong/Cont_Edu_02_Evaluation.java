@@ -121,7 +121,7 @@ public class Cont_Edu_02_Evaluation {
         _fb(sc, "교수목표");
         {
             _s();
-            _ip(CC.Bloom_taxonomy);
+            _ip(Cont_CC.Bloom_taxonomy);
             _e();
         }
         _fb(sc, "평가문항");

@@ -25,7 +25,7 @@ public class Cont_Edu_01_Technology {
                 _ip("블룸]_ 교수목표 분류");
                 {
                     _s();
-                    CC.Bloom_taxonomy = _get_above();
+                    Cont_CC.Bloom_taxonomy = _get_above();
                     _ip("인지적 영역");
                     {
                         _s();
@@ -53,7 +53,7 @@ public class Cont_Edu_01_Technology {
                 _ip("가네]_ 5가지 학습 영역");
                 {
                     _s();
-                    CC.Gagne_5_learning_area = _get_above();
+                    Cont_CC.Gagne_5_learning_area = _get_above();
                     _ip("언어정보");
                     _ip("지적기능");
                     _ip("인지전략");
@@ -74,7 +74,7 @@ public class Cont_Edu_01_Technology {
             _ip("라이겔루스]_ 처방적 교수이론");
             {
                 _s();
-                CC.Reigeluth_ = _get_above();
+                Cont_CC.Reigeluth_ = _get_above();
                 _ip("교수의 조건");
                 {
                     _s();
@@ -135,7 +135,7 @@ public class Cont_Edu_01_Technology {
             _ip("가네]_ 교수이론");
             {
                 _s();
-                _ip(CC.Gagne_5_learning_area); //"가네]_ 학습영역"
+                _ip(Cont_CC.Gagne_5_learning_area); //"가네]_ 학습영역"
                 _ip("가네]_ 9가지 수업 사태");
                 {
                     _s();
@@ -188,7 +188,7 @@ public class Cont_Edu_01_Technology {
                 }
                 _e();
             }
-            _ip(CC.Reigeluth_);
+            _ip(Cont_CC.Reigeluth_);
             _ip("메릴]_ 내용-요소 제시이론");
             {
                 _s();
