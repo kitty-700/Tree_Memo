@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -16,7 +15,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -30,36 +28,40 @@ public class MainActivity extends AppCompatActivity {
     Button piece_insert_btn;
     EditText piece_input;
     Stack<Piece> pieceStack; //최상위 요소 하나는 있어야하므로 최소 크기가 1임.
-    Piece root_piece = new Piece("교육학");
+    Piece root_piece;
     Piece now_piece;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        navigator = (TextView) findViewById(R.id.now_where);
-        listView = (ListView) findViewById(R.id.item_list);
-        listViewCover = (LinearLayout) findViewById(R.id.item_list_cover);
-        memo_btn = (Button) findViewById(R.id.display_memo_btn);
-        piece_input = (EditText) findViewById(R.id.item_input);
-        piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
-
-        SubjectInfo.init_static_members();
-        SubjectInfo.mainActivity = this;
+        init_widget();
+        init_listner();
+        Initializer.init_static_members();
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); //키보드 따라서 화면 올라가도록 하기
-        pieceStack = new Stack<Piece>();
-        mainActivity = this;
-        Initializer.initialize(root_piece);
-        pieceStack.push(root_piece);
-        now_piece = root_piece;
-        memo_btn.setOnClickListener(new View.OnClickListener() {
+        init_members();
+        Initializer.contents_initialize(root_piece);
+        refresh_display();
+    }
+
+    void init_widget() {
+        this.navigator = (TextView) findViewById(R.id.now_where);
+        this.listView = (ListView) findViewById(R.id.item_list);
+        this.listViewCover = (LinearLayout) findViewById(R.id.item_list_cover);
+        this.memo_btn = (Button) findViewById(R.id.display_memo_btn);
+        this.piece_input = (EditText) findViewById(R.id.item_input);
+        this.piece_insert_btn = (Button) findViewById(R.id.insert_item_btn);
+    }
+
+    void init_listner() {
+        this.memo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (is_have_memo(now_piece))
                     display_memo(now_piece);
             }
         });
-        listViewCover.setOnClickListener(new View.OnClickListener() {
+        this.listViewCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (is_have_sub_pieces(now_piece) == false) {
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        this.listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
                                            int i, long l) {
@@ -93,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        piece_insert_btn.setOnClickListener(new View.OnClickListener() {
+        this.piece_insert_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String now_entered = piece_input.getText().toString().trim();
-                switch(now_entered){
+                switch (now_entered) {
                     //별 의미없는 입력이면 무시한다.
                     case "":
                         return;
@@ -117,14 +119,25 @@ public class MainActivity extends AppCompatActivity {
                 refresh_display();
             }
         });
-        refresh_display();
     }
-    void perform_QQ(){ //Quiz 로
+
+    void init_members() {
+        this.mainActivity = this;
+        this.pieceStack = new Stack<Piece>();
+
+        root_piece = new Piece("교육학");
+        pieceStack.push(root_piece);
+        now_piece = root_piece;
+    }
+
+    void perform_QQ() { //Quiz 로 팝업?
 
     }
-    void perform_TR(){ //Tree 형태로 표현
+
+    void perform_TR() { //Tree 형태로 표현 (다른 레이아웃으로 넘겨야할듯?)
 
     }
+
     void keyboard_kill(EditText editText) { //입력중이던 내용을 지우고 닫는다.
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(piece_input.getWindowToken(), 0);
