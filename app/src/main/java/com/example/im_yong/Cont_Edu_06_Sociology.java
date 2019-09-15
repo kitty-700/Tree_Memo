@@ -9,7 +9,7 @@ public class Cont_Edu_06_Sociology {
 
         Cont_Detail_Part.insert_into_ps("교육사회학");
 
-        _fb(sc, "이론");
+        _fb(sc, "핵심");
         {
             _s();
             _ip("기능론");//1382p
