@@ -1,5 +1,7 @@
 package com.example.im_yong;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Piece {
@@ -19,9 +21,9 @@ public class Piece {
         this.children_count = 0;
         if (al == null)
             this.al = false;
-        else{
+        else {
             this.al = al;
-            if(al==true)
+            if (al == true)
                 SubjectInfo.eff_ps.add(this);
         }
         this.itn = itn;
@@ -55,6 +57,7 @@ public class Piece {
     int children_counting() {
         int count = this.children_count;
         for (Piece piece : sub_pieces) {
+            Log.e("kitty", piece.title);
             count += piece.children_counting();
         }
         return count;
