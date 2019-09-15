@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
     void perform_QQ() { //Quiz 로 팝업?
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mainActivity);
-        int number = (int) Math.random() * SubjectInfo.eff_ps.size();
+        int number = (int) (Math.random() * SubjectInfo.eff_ps.size());
         Piece piece = SubjectInfo.eff_ps.get(number);
         builder.setTitle(piece.title);
         builder.setMessage(piece.memo);

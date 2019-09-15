@@ -295,7 +295,7 @@ public class Cont_Edu_00_Curriculum {
                 _s();
                 _ip("핵심");
                 {
-                    _ip("핵심역량", true);
+                    _ip("미래 핵심역량", true);
                     {
                         _s();
                         _ip("자기관리 역량");
