@@ -87,6 +87,11 @@ public class SubjectInfo {
         pi--;
     }
 
+    ///////////////////
+    public static Piece _get_above() { //get above
+        return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
+    }
+    ///////////////////
     public static void init_informations() {
         Cont_Detail_Part.init_informations();
     }
