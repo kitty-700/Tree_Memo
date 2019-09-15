@@ -7,6 +7,7 @@ public class Initializer {
         SubjectInfo.pi = 0;
         SubjectInfo.mainActivity = null;
         SubjectInfo.ps = new ArrayList<>();
+        SubjectInfo.eff_ps = new ArrayList<>();
         SubjectInfo.pp = new Piece[20];
         Piece.ID_next = 0;
     }

@@ -18,6 +18,14 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="현재 위치" />
+
+        <Button
+            android:id="@+id/qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:padding="10dp"
+            android:text="랜덤팝업" />
     </FrameLayout>
 
     <TextView
@@ -51,9 +59,9 @@
             android:layout_above="@id/divide_line_over_input_set"
             android:layout_gravity="right|top"
             android:layout_margin="3dp"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
             android:background="#99daff1a"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:singleLine="true"
             android:text="메모 확인" />
 

@@ -19,8 +19,11 @@ public class Piece {
         this.children_count = 0;
         if (al == null)
             this.al = false;
-        else
+        else{
             this.al = al;
+            if(al==true)
+                SubjectInfo.eff_ps.add(this);
+        }
         this.itn = itn;
     }
 

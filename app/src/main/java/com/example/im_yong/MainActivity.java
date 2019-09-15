@@ -17,7 +17,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Stack;
+
+import static com.example.im_yong.SubjectInfo.eff_ps;
 
 public class MainActivity extends AppCompatActivity {
     MainActivity mainActivity;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TextView navigator;
     Button memo_btn;
     Button piece_insert_btn;
+    Button qq_btn;
     EditText piece_input;
     Stack<Piece> pieceStack; //최상위 요소 하나는 있어야하므로 최소 크기가 1임.
     Piece root_piece;
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     void init_widget() {
         this.navigator = (TextView) findViewById(R.id.now_where);
         this.listView = (ListView) findViewById(R.id.item_list);
+        this.qq_btn = (Button) findViewById(R.id.qq);
         this.listViewCover = (LinearLayout) findViewById(R.id.item_list_cover);
         this.memo_btn = (Button) findViewById(R.id.display_memo_btn);
         this.piece_input = (EditText) findViewById(R.id.item_input);
@@ -54,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void init_listner() {
+        this.qq_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                perform_QQ();
+            }
+        });
         this.memo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +142,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void perform_QQ() { //Quiz 로 팝업?
-
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mainActivity);
+        int number = (int) Math.random() * SubjectInfo.eff_ps.size();
+        Piece piece = SubjectInfo.eff_ps.get(number);
+        builder.setTitle(piece.title);
+        builder.setMessage(piece.memo);
+        builder.setNegativeButton("OK", null);
+        builder.show();
     }
 
     void perform_TR() { //Tree 형태로 표현 (다른 레이아웃으로 넘겨야할듯?)
@@ -159,7 +176,9 @@ public class MainActivity extends AppCompatActivity {
     void refresh_display() {    //now_piece를 가지고 화면 재구성
         //목차 갱신
         String string = "";
-        for (int i = 0; i < pieceStack.size(); i++) {
+        for (int i = 0; i < pieceStack.size()
+
+                ; i++) {
             string += pieceStack.get(i).title + "\n";
             for (int j = 0; j <= i; j++)
                 string += "   ";
