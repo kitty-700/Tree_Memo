@@ -51,13 +51,12 @@ public class Piece {
 
     void put(Piece piece) {
         this.sub_pieces.add(piece);
-        this.children_count++;
+        this.children_count = this.sub_pieces.size();
     }
 
     int children_counting() {
         int count = this.children_count;
         for (Piece piece : sub_pieces) {
-            Log.e("kitty", piece.title);
             count += piece.children_counting();
         }
         return count;

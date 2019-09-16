@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,7 +24,7 @@ import java.util.Stack;
 import static com.example.im_yong.SubjectInfo.eff_ps;
 
 public class MainActivity extends AppCompatActivity {
-    MainActivity mainActivity;
+    final MainActivity mainActivity = this;
     ListView listView;
     LinearLayout listViewCover;
     TextView navigator;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Stack<Piece> pieceStack; //최상위 요소 하나는 있어야하므로 최소 크기가 1임.
     Piece root_piece;
     Piece now_piece;
+    TimeEngine timeEngine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 perform_QQ();
+            }
+        });
+        this.qq_btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                if (timeEngine == null) {
+                    Toast.makeText(mainActivity, "랜덤 토스트 시작", Toast.LENGTH_SHORT).show();
+                    timeEngine = new TimeEngine(mainActivity);
+                } else {
+                    Toast.makeText(mainActivity, "랜덤 토스트 끝", Toast.LENGTH_SHORT).show();
+                    if (timeEngine.timer != null) {
+                        timeEngine.timer.cancel();
+                        timeEngine.timer.purge();
+                        timeEngine.timer = null;
+                    }
+                    timeEngine = null;
+                }
+                return true;
             }
         });
         this.memo_btn.setOnClickListener(new View.OnClickListener() {
@@ -133,9 +154,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void init_members() {
-        this.mainActivity = this;
         this.pieceStack = new Stack<Piece>();
-
         root_piece = new Piece(CC.main_thema);
         pieceStack.push(root_piece);
         now_piece = root_piece;
@@ -190,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Piece> sub_pieces = now_piece.sub_pieces;
 
         if (sub_pieces.size() != 0) {
-            //현재 가진 piece들의 정보를 문자열로 만들어 추가한다.
+            //now_piece의 sub_piece들의 정보를 문자열로 만들어 추가한다.
             for (Piece piece : sub_pieces) {
                 String str = piece.title;
                 int count = piece.sub_pieces.size();
