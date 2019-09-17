@@ -10,8 +10,7 @@ public class TimeEngine { //타임엔진이 하는 역할 : 1초가 지날 때�
     Timer timer;
     MainActivity mainActivity;
     Handler handler = new Handler();
-    Handler UI_controll_handler;
-    final int time_delay = 1000;
+    final int time_delay = 3000;
 
     TimeEngine(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -29,9 +28,13 @@ public class TimeEngine { //타임엔진이 하는 역할 : 1초가 지날 때�
                 public void run() {
                     int number = (int) (Math.random() * SubjectInfo.eff_ps.size());
                     Piece piece = SubjectInfo.eff_ps.get(number);
-                    Toast.makeText(mainActivity, piece.title, Toast.LENGTH_LONG).show();
+                    Toast.makeText(mainActivity,
+                            piece.memo +
+                                    "\n------------------------------------------------------\n" +
+                                    "<< " + piece.title + " >>",
+                            Toast.LENGTH_LONG).show();
                 }
-            }, 4000);
+            }, 1000);
         }
     }
 }
