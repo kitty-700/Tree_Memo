@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Piece picked_piece = now_piece.sub_pieces.get(i);
-                if (picked_piece.title.equals(CC.divide_line))
+                if (picked_piece.title.contains(CC.divide_line)) //Leaf면 무시
                     return;
                 pieceStack.push(picked_piece);
                 now_piece = picked_piece;
@@ -195,10 +195,11 @@ public class MainActivity extends AppCompatActivity {
     void refresh_display() {    //now_piece를 가지고 화면 재구성
         //목차 갱신
         String string = "";
-        for (int i = 0; i < pieceStack.size()
-
-                ; i++) {
-            string += pieceStack.get(i).title + "\n";
+        for (int i = 0; i < pieceStack.size(); i++) {
+            String str = pieceStack.get(i).title;
+            if (str.contains("┌ ") || str.contains("│ ") || str.contains("└ "))
+                str = str.substring(2);
+            string += str + "\n";
             for (int j = 0; j <= i; j++)
                 string += "   ";
         }

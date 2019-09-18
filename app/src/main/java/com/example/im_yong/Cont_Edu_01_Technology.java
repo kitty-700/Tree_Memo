@@ -66,12 +66,13 @@ public class Cont_Edu_01_Technology {
                 {
                     _s();
                     Cont_CC.Gagne_5_learning_area = _get_above();
+                    _ip(divide_line + "지식");
                     _ip("언어정보");
                     _ip("지적기능");
                     _ip("인지전략");
-                    _ip(divide_line);
+                    _ip(divide_line + "태도");
                     _ip("태도");
-                    _ip(divide_line);
+                    _ip(divide_line + "기능");
                     _ip("운동기능");
                     _e();
                 }
@@ -223,6 +224,7 @@ public class Cont_Edu_01_Technology {
                 _ip("가네]_ 9가지 수업 사태");
                 {
                     _s();
+                    _ip(divide_line);
                     _ip("주의집중 시키기");
                     _ip("학습자에게 목표 알려주기");
                     _ip("선수학습의 회생 자극하기");
