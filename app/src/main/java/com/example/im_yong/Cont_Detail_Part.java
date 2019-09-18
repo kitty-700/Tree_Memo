@@ -10,9 +10,15 @@ public class Cont_Detail_Part {
     static final int PSY = 5;
     static final int SOC = 6;
     static final int PHI = 7;
-    public static void insert_into_ps(String subject_title){
-        SubjectInfo.ps.add(new Piece(subject_title));
+
+    public static void insert_into_ps(String subject_title) {
+        insert_into_ps(subject_title, null);
     }
+
+    public static void insert_into_ps(String subject_title, String memo) {
+        SubjectInfo.ps.add(new Piece(subject_title, true, 8, memo));
+    }
+
     public static void init_informations() {
         Cont_Edu_00_Curriculum.put_cur();
         Cont_Edu_01_Technology.put_tec();
