@@ -10,6 +10,7 @@ public class SubjectInfo {
     static Piece pp[]; //Piece Pointer. 스택과 연계될 최대 레벨 20 이지만 여기까지 누가 쓸까?
     static int pi;    //Piece pointer Index
     static MainActivity mainActivity;
+    static ArrayList<Piece> eff_ps;//effective pieces
     //////////////////final members
 /*
     int sc = <SUB>; //subject code
@@ -26,28 +27,49 @@ public class SubjectInfo {
         _e();
     } //-> fb 전까지는 _e(); 해줘야한다.
 */
-
-    public static void _fb(int subject_code, String title, String memo) { //first branch
-        ps.get(subject_code).put(pp[pi] = new Piece(title, memo));
-    }
-
-    public static void _fb(int subject_code, String title) {
+    //(start) _fb() overloading/////////////////////////////////////////////
+    public static void _fb(int subject_code, String title, Boolean al, Integer itn, String memo) { //first branch
         if (pi != 0) {
             Log.e("kitty", subject_code + " error in " + title);
             if (mainActivity != null)
                 Toast.makeText(mainActivity, "데이터 파일에 에러가 있는듯\n" + subject_code + "-" + title, Toast.LENGTH_LONG).show();
         }
         pi = 0;
-        _fb(subject_code, title, null);
+        ps.get(subject_code).put(pp[pi] = new Piece(title, al, itn, memo));
     }
 
-    public static Piece _get_above() { //get above
-        return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
+    public static void _fb(int subject_code, String title) {
+        _fb(subject_code, title, null, null, null);
     }
 
-    ///////////////////
+    public static void _fb(int subject_code, String title, Boolean al) {
+        _fb(subject_code, title, al, null, null);
+    }
+
+    public static void _fb(int subject_code, String title, Integer itn) {
+        _fb(subject_code, title, null, itn, null);
+    }
+
+    public static void _fb(int subject_code, String title, String memo) {
+        _fb(subject_code, title, null, null, memo);
+    }
+
+    public static void _fb(int subject_code, String title, Boolean al, String memo) {
+        _fb(subject_code, title, al, null, memo);
+    }
+
+    public static void _fb(int subject_code, String title, Integer itn, String memo) {
+        _fb(subject_code, title, null, itn, memo);
+    }
+    //(end) _fb() overloading/////////////////////////////////////////////
+
+    //(start) _ip() overloading/////////////////////////////////////////////
     public static void _ip(String title, Boolean al, Integer itn, String memo) {//insert piece 목차 항목 넣기
         pp[pi - 1].put(pp[pi] = new Piece(title, al, itn, memo)); //부모 (pp[pi-1]) 에 new_piece를 자식 (pp[pi])으로서 넣는다.
+    }
+
+    public static void _ip(String title) {
+        _ip(title, null, null, null);
     }
 
     public static void _ip(String title, String memo) {
@@ -70,14 +92,14 @@ public class SubjectInfo {
         _ip(title, al, null, memo);
     }
 
-    public static void _ip(String title) {
-        _ip(title, null, null, null);
+    public static void _ip(String title, Integer itn, String memo) {
+        _ip(title, null, itn, memo);
     }
 
-    ///////////////////
     public static void _ip(Piece init_target_piece) { //globalized 된 Piece 를 가져오는 오버로딩함수
         pp[pi - 1].put(pp[pi] = init_target_piece);
     }
+    //(end) _ip() overloading/////////////////////////////////////////////
 
     public static void _s() {//start. 목차의 시작
         pi++;
