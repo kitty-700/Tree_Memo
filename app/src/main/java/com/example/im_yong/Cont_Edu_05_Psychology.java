@@ -5,10 +5,9 @@ import static com.example.im_yong.SubjectInfo.*;
 
 
 public class Cont_Edu_05_Psychology {
-    static void put_psy() {
-        int sc = PSY; //subject code
+    static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps("교육심리");
+        Cont_Detail_Part.insert_into_ps(sc, "교육심리");
 
         _fb(sc, "발달이론");
         {
@@ -28,7 +27,7 @@ public class Cont_Edu_05_Psychology {
                     _ip("성격");
                     {
                         _s();
-                        _ip("프로이드]_ 심리 성적 성격발달이론",true,"원시자아에서 나온 성적 에너지인 리비도");
+                        _ip("프로이드]_ 심리 성적 성격발달이론", true, "원시자아에서 나온 성적 에너지인 리비도");
                         {
                             _s();
                             _ip("구강기");
@@ -38,7 +37,7 @@ public class Cont_Edu_05_Psychology {
                             _ip("생식기");
                             _e();
                         }
-                        _ip("에릭슨]_ 사회심리적 성격발달이론",true,"개인의 욕구와 사회문화적인 요인의 상호작용으로 성격 발달");
+                        _ip("에릭슨]_ 사회심리적 성격발달이론", true, "개인의 욕구와 사회문화적인 요인의 상호작용으로 성격 발달");
                         {
                             _s();
                             _ip("유아기　　 : 기본적 신뢰감 vs 불신감");
@@ -56,7 +55,7 @@ public class Cont_Edu_05_Psychology {
                     _ip("정체성");
                     {
                         _s();
-                        _ip("마샤]_ 정체감 상태",true,"탐색과 헌신 두 요인이 정체감 상태 결정");
+                        _ip("마샤]_ 정체감 상태", true, "탐색과 헌신 두 요인이 정체감 상태 결정");
                         _e();
                     }
                     _ip("자아개념");
@@ -78,7 +77,7 @@ public class Cont_Edu_05_Psychology {
                             _ip("3. 후인습적 도덕성 단계");
                             _e();
                         }
-                        _ip("셀만]_ 조망수용 단계", true,7,"조망수용능력 : 다른 사람의 관점에서 이해하는 능력");
+                        _ip("셀만]_ 조망수용 단계", true, 7, "조망수용능력 : 다른 사람의 관점에서 이해하는 능력");
                         {
                             _s();
                             _ip("1. ");

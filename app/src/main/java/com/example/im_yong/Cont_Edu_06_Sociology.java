@@ -4,10 +4,9 @@ import static com.example.im_yong.Cont_Detail_Part.SOC;
 import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_06_Sociology {
-    static void put_soc() {
-        int sc = SOC; //subject code
+    static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps("교육사회학");
+        Cont_Detail_Part.insert_into_ps(sc, "교육사회학");
 
         _fb(sc, "핵심");
         {

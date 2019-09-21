@@ -9,6 +9,16 @@ public class Initializer {
         SubjectInfo.ps = new ArrayList<>();
         SubjectInfo.eff_ps = new ArrayList<>();
         SubjectInfo.pp = new Piece[20];
+        SubjectInfo.now_installing_subject_is = -1; //이후 _fb()에서 갱신됨
+        /* DP 이용, 선호하는 과목을 SubjectInfo 클래스의 favorite_subjects_bool[] 에 표시 */
+        SubjectInfo.favorite_subjects_bool = new boolean[Cont_Detail_Part.subject_codes.length];
+        for (int i = 0; i < Cont_Detail_Part.subject_codes.length; i++) {
+            SubjectInfo.favorite_subjects_bool[i] = false;
+        }
+        for (int i = 0; i < Cont_Detail_Part.favorite_subjects.length; i++) {
+            SubjectInfo.favorite_subjects_bool[Cont_Detail_Part.favorite_subjects[i]] = true;
+        }
+        /* DP 이용, 선호하는 과목 표시 [END] */
         Piece.ID_next = 0;
     }
 

@@ -13,20 +13,31 @@ public class Piece {
     int children_count;
     Integer itn; //importance. 중요한 정도 0,,,,,,10 or null
     Boolean al; //alone. 단일 용어로 쓰이는지 1(O) or null
+    Integer subject_code;
 
     Piece(String title, Boolean al, Integer itn, String memo) {
         this.ID = this.ID_next++;
         this.title = title;
         this.memo = memo;
         this.children_count = 0;
+        this.itn = itn;
+        this.subject_code = SubjectInfo.now_installing_subject_is;
+        //condition init
         if (al == null)
             this.al = false;
         else {
             this.al = al;
-            if (al == true)
-                SubjectInfo.eff_ps.add(this);
+            /* 팝업퀴즈에 추가되는 조건 제시 */
+            if (al == true) {
+                if (SubjectInfo.now_installing_subject_is != -1) {
+                    if (SubjectInfo.favorite_subjects_bool[SubjectInfo.now_installing_subject_is]) {
+                        /* 팝업퀴즈에 추가되는 조건 제시 [END] */
+                        SubjectInfo.eff_ps.add(this);
+                    }
+                }
+
+            }
         }
-        this.itn = itn;
     }
 
     Piece(String title) {

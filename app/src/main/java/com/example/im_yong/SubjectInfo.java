@@ -11,6 +11,9 @@ public class SubjectInfo {
     static int pi;    //Piece pointer Index
     static MainActivity mainActivity;
     static ArrayList<Piece> eff_ps;//effective pieces
+    static boolean favorite_subjects_bool[];//effective pieces
+    static int now_installing_subject_is;
+
     //////////////////final members
 /*
     int sc = <SUB>; //subject code
@@ -29,11 +32,12 @@ public class SubjectInfo {
 */
     //(start) _fb() overloading/////////////////////////////////////////////
     public static void _fb(int subject_code, String title, Boolean al, Integer itn, String memo) { //first branch
-        if (pi != 0) {
+        if (pi != 0) { //여기서 subject_code는 대충 어디서 에러가 발생하는지 가늠하기 위해 사용됨
             Log.e("kitty", subject_code + " error in " + title);
             if (mainActivity != null)
                 Toast.makeText(mainActivity, "데이터 파일에 에러가 있는듯\n" + subject_code + "-" + title, Toast.LENGTH_LONG).show();
         }
+        SubjectInfo.now_installing_subject_is = subject_code;
         pi = 0;
         ps.get(subject_code).put(pp[pi] = new Piece(title, al, itn, memo));
     }
@@ -113,6 +117,7 @@ public class SubjectInfo {
     public static Piece _get_above() { //get above
         return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
     }
+
     ///////////////////
     public static void init_informations() {
         Cont_Detail_Part.init_informations();

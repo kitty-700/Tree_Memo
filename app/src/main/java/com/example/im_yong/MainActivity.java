@@ -70,9 +70,15 @@ public class MainActivity extends AppCompatActivity {
         this.qq_btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-
+                if (SubjectInfo.eff_ps.size() == 0) {
+                    Toast.makeText(mainActivity, "가능한 퀴즈 없음", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
                 if (timeEngine == null) {
-                    Toast.makeText(mainActivity, "랜덤 토스트 시작", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, "랜덤 토스트 시작\n" +
+                                    Cont_Detail_Part.favorite_subjects.length + " 개 과목에서\n" +
+                                    SubjectInfo.eff_ps.size() + " 개 퀴즈 출제"
+                            , Toast.LENGTH_SHORT).show();
                     timeEngine = new TimeEngine(mainActivity);
                 } else {
                     Toast.makeText(mainActivity, "랜덤 토스트 끝", Toast.LENGTH_SHORT).show();

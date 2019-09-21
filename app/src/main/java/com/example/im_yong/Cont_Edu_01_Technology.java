@@ -6,10 +6,9 @@ import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_01_Technology {
 
-    static void put_tec() {
-        int sc = TEC; //subject code
+    static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps("교수학습 & 교육공학");
+        Cont_Detail_Part.insert_into_ps(sc, "교수학습 & 교육공학");
 
         _fb(sc, "핵심");
         {

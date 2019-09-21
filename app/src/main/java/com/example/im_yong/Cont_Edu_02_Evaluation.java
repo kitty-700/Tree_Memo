@@ -5,10 +5,9 @@ import static com.example.im_yong.SubjectInfo.*;
 
 
 public class Cont_Edu_02_Evaluation {
-    static void put_eva() {
-        int sc = EVA; //subject code
+    static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps("교육평가 & 교육연구");
+        Cont_Detail_Part.insert_into_ps(sc, "교육평가 & 교육연구");
 
         _fb(sc, "교육평가의 의의");
         {

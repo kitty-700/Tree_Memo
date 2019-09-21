@@ -4,10 +4,9 @@ import static com.example.im_yong.Cont_Detail_Part.CUR;
 import static com.example.im_yong.SubjectInfo.*;
 
 public class Cont_Edu_00_Curriculum {
-    static void put_cur() {
-        int sc = CUR; //subject code
+    static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps("교육과정 (￠)");
+        Cont_Detail_Part.insert_into_ps(sc, "교육과정 (￠)");
 
         _fb(sc, "핵심");
         {
