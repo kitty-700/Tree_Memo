@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_04_Administration {
     static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps(sc, "교육행정", "어떻게 하면 교육조직 목표를 효율적 달성할 수 있을까?");
+        SubjectInfo.insert_into_ps(sc, "교육행정", "어떻게 하면 교육조직 목표를 효율적 달성할 수 있을까?");
 
         _fb(sc, "핵심");
         {

@@ -6,7 +6,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_06_Sociology {
     static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps(sc, "교육사회학");
+        SubjectInfo.insert_into_ps(sc, "교육사회학");
 
         _fb(sc, "핵심");
         {

@@ -8,7 +8,7 @@ public class Cont_Edu_01_Technology {
 
     static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps(sc, "교수학습 & 교육공학");
+        SubjectInfo.insert_into_ps(sc, "교수학습 & 교육공학");
 
         _fb(sc, "핵심");
         {

@@ -114,6 +114,17 @@ public class SubjectInfo {
     }
 
     ///////////////////
+    public static void insert_into_ps(int subject_code, String subject_title) {
+        insert_into_ps(subject_code, subject_title, null);
+    }
+
+    public static void insert_into_ps(int subject_code, String subject_title, String memo) {
+        SubjectInfo.now_installing_subject_is = subject_code;
+        SubjectInfo.ps.add(new Piece(subject_title, true, 8, memo));
+    }
+
+    ///////////////////
+
     public static Piece _get_above() { //get above
         return pp[pi - 1]; //_s() 가 선행되므로 이전 Piece를 지칭하기 위해 pp[pi-1]
     }

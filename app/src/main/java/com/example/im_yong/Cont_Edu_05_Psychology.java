@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_05_Psychology {
     static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps(sc, "교육심리");
+        SubjectInfo.insert_into_ps(sc, "교육심리");
 
         _fb(sc, "발달이론");
         {

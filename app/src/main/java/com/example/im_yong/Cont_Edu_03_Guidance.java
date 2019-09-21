@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_03_Guidance {
     static void content_installing(int sc) {//subject code
 
-        Cont_Detail_Part.insert_into_ps(sc, "생활지도 & 상담");
+        SubjectInfo.insert_into_ps(sc, "생활지도 & 상담");
 
         _fb(sc, "생활지도");
         {
