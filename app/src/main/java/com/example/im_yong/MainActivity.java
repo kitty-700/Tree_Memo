@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         refresh_display();
     }
 
+    @Override
+    protected void onDestroy() {
+        kill_timer();
+        super.onDestroy();
+    }
+
     void init_widget() {
         this.navigator = (TextView) findViewById(R.id.now_where);
         this.listView = (ListView) findViewById(R.id.item_list);
@@ -76,18 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (timeEngine == null) {
                     Toast.makeText(mainActivity, "랜덤 토스트 시작\n" +
-                                    Cont_Detail_Part.favorite_subjects.length + " 개 과목에서\n" +
+                                    Cont_Detail_Part.subject_codes.length + " 中 " + Cont_Detail_Part.favorite_subjects.length + " 개 과목에서\n" +
                                     SubjectInfo.eff_ps.size() + " 개 퀴즈 출제"
                             , Toast.LENGTH_SHORT).show();
                     timeEngine = new TimeEngine(mainActivity);
                 } else {
                     Toast.makeText(mainActivity, "랜덤 토스트 끝", Toast.LENGTH_SHORT).show();
-                    if (timeEngine.timer != null) {
-                        timeEngine.timer.cancel();
-                        timeEngine.timer.purge();
-                        timeEngine.timer = null;
-                    }
-                    timeEngine = null;
+                    kill_timer();
                 }
                 return true;
             }
@@ -159,12 +160,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    void kill_timer() {
+        if (timeEngine.timer != null) {
+            timeEngine.timer.cancel();
+            timeEngine.timer.purge();
+            timeEngine.timer = null;
+        }
+        timeEngine = null;
+    }
+
     void init_members() {
         this.pieceStack = new Stack<Piece>();
         root_piece = new Piece(CC.main_thema);
         pieceStack.push(root_piece);
         now_piece = root_piece;
     }
+
 
     void perform_QQ() { //Quiz 로 팝업?
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mainActivity);
