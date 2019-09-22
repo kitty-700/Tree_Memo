@@ -8,7 +8,12 @@ public class Cont_Edu_01_Technology {
 
     static void content_installing(int sc) {//subject code
 
-        SubjectInfo.insert_into_ps(sc, "교수학습 & 교육공학");
+        SubjectInfo.insert_into_ps(sc, "교수학습", "" +
+                "학습 : 경험을 통해 학습자에게 일어나는 지속적인 지식·기능·태도의 변화\n" +
+                divide_line +
+                "교수 : 학습을 위한 설계·개발·실행·관리·평가"
+
+        );
 
         _fb(sc, "핵심");
         {

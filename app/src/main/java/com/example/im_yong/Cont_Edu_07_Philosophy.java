@@ -7,7 +7,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_07_Philosophy {
     static void content_installing(int sc) {//subject code
 
-        SubjectInfo.insert_into_ps(sc,"교육철학");
+        SubjectInfo.insert_into_ps(sc,"교육철학","교육의 개념·목적·원리에 대한 학문");
 
         _fb(sc, "핵심");
         {

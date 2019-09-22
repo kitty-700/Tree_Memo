@@ -7,7 +7,9 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_03_Guidance {
     static void content_installing(int sc) {//subject code
 
-        SubjectInfo.insert_into_ps(sc, "생활지도 & 상담");
+        SubjectInfo.insert_into_ps(sc, "생활지도 & 상담",
+                "생활지도 : 학생이 현실에 적응하고 자기방향을 정립해가도록 돕는 것\n" +
+                        "상담　　 : 학생이 문제를 스스로 해결하도는 능력을 함양토록 돕는 것");
 
         _fb(sc, "생활지도");
         {

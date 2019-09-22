@@ -6,7 +6,7 @@ import static com.example.im_yong.SubjectInfo.*;
 public class Cont_Edu_00_Curriculum {
     static void content_installing(int sc) {//subject code
 
-        SubjectInfo.insert_into_ps(sc, "교육과정 (￠)");
+        SubjectInfo.insert_into_ps(sc, "교육과정 (￠)", "교육의 목표·내용·경험·방법·평가를 체계적으로 조직한 교육 계획");
 
         _fb(sc, "핵심");
         {
