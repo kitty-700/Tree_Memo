@@ -38,7 +38,7 @@ public class Cont_Edu_01_Technology {
                     _ip("태도 (덕)", "느끼는 것 (feeling)");
                     _e();
                 }
-                _ip("블룸]_ 교수목표 분류", true, 8);
+                _ip("블룸]_ 교수목표 분류", true, 8, "인지·정의·심동적 영역");
                 {
                     _s();
                     Cont_CC.Bloom_taxonomy = _get_above();
@@ -66,7 +66,7 @@ public class Cont_Edu_01_Technology {
                     _ip("심동적 영역", "≒기능");
                     _e();
                 }
-                _ip("가네]_ 5가지 학습 영역", true);
+                _ip("가네]_ 5가지 학습 영역", true, "언어정보\n지적기능\n인지전략\n운동기능\n태도");
                 {
                     _s();
                     Cont_CC.Gagne_5_learning_area = _get_above();

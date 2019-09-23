@@ -83,7 +83,7 @@ public class Cont_Edu_06_Sociology {
                 _ip("유형");
                 {
                     _s();
-                    _ip("상징적 상호작용이론", true, 6);
+                    _ip("상징적 상호작용이론", true, 6,"");
                     _ip("문화기술 연구", true, 7);
                     _ip("교환이론", true);
                     _e();
