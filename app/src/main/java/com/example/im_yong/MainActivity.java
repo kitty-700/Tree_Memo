@@ -67,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void init_listner() {
+        navigator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         this.qq_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
