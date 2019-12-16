@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void kill_timer() {
-        if (timeEngine.timer != null) {
+        if (timeEngine !=null && timeEngine.timer != null) {
             timeEngine.timer.cancel();
             timeEngine.timer.purge();
             timeEngine.timer = null;
